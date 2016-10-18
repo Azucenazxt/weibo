@@ -1,0 +1,29 @@
+<!Doctype html>
+<html>
+<head>
+    <title>
+        Weibo
+    </title>
+    {% block head %}
+    <link rel="stylesheet" href="/static/css/base.css">
+    {% endblock %}
+</head>
+<body>
+    <div class="tong-header">
+        <h1 class="tong-left">
+            Weibo
+        </h1>
+    </div>
+
+    <div class="tong-content">
+        <div class="tong-inner-content">
+        {% block content %}{% endblock %}
+        </div>
+    </div>
+    <div class="tong-bottom">
+    {% block footer %}
+        Copyright 2016 by <a href="/">CaiCai</a>.
+    {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+.tong-weibo-line {
+    background: lightblue;
+    height: 50px;
+    padding: 10px 0;
+    margin: 10px 0;
+    color: black;
+    border-radius: 3px;
+    height: 50px;
+}
+
+.tong-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+    margin: 0 10px;
+}
+
+.tong-weibo-content {
+    height: 25px;
+}
+
+
+.tong-weibo-user {
+    height: 25px;
+}
+
+.tong-button {
+    font-size: 15px;
+    border-radius: 5px;
+    border-style: none;
+    color: gray;
+    background: pink;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 3px;
+    margin: 5px;
+    cursor: pointer;
+    font-family: Microsoft Yahei;
+}
+
+.tong-new-content {
+    background: #fafa9e;
+    border: none;
+    border-radius: 4px;
+    width: 88%;
+    font-size: 20px;
+    height: 30px;
+}
+
+
+.tong-big-button {
+    font-size: 15px;
+    border-radius: 5px;
+    border-style: none;
+    color: gray;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 3px;
+    cursor: pointer;
+    font-family: Microsoft Yahei;
+    height: 35px;
+    width: 70px;
+}
+
+.tong-little-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    margin: 0 10px;
+}
+
+.tong-comment-content {
+    height: 30px;
+    margin: 10px 0;
+    background: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.tong-sidebar-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 15px;
+}
+
+.tong-sidebar-name {
+    color: gray;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.tong-sidebar-name:hover {
+    text-decoration: underline;
+}
+
+.tong-sidebar-title {
+    font-size: 20px;
+    margin: 10px;
+    color: blue;
+}

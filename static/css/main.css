@@ -1,0 +1,51 @@
+.tong-hide {
+    display: none;
+}
+
+.tong-left {
+    float: left;
+}
+
+.tong-right {
+    float: right;
+}
+
+body {
+    margin: 25px auto;
+    background: lightgreen;
+    font-family: Microsoft Yahei;
+    max-width: 1000px;
+    min-width: 950px;
+}
+
+.tong-content {
+    margin: 0 300px 0 0;
+}
+
+.tong-sidebar {
+    background: #d4ffc0;
+    width: 280px;
+    height: 300px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.tong-weibo-input {
+    height: 25px;
+    font-size: 20px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+}
+
+
+.tong-push-button {
+    background: pink;
+    border-style: none;
+    border-radius: 3px;
+    height: 23px;
+    color: gray;
+    font-family: Microsoft Yahei;
+}
+

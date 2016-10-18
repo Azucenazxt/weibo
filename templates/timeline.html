@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/weibo.css">
+    <script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/static/js/weibo.js"></script>
+    <title>微博</title>
+</head>
+<body>
+    <div class="tong-sidebar tong-right">
+    {% block sidebar %}
+        <img class="tong-sidebar-avatar" src="{{ user.avatar }}">
+        <div>
+            <a class="tong-sidebar-name" href="{{url_for('user.profile', id=user.id)}}"><div>{{ user.username }}</div></a>
+            <div class="tong-sidebar-title">{{ user.title }}</div>
+        </div>
+    {% endblock %}
+    </div>
+    <div class="tong-content">
+        <div class="tong-weibo-header">
+            <form action="{{ url_for('weibo.add')}}" method="post">
+                <textarea class="tong-weibo-input" name="content" placeholder="Weibo"></textarea>
+                <input type="hidden" name="user_id" value="{{user.id}}">
+                <br>
+                <button class="tong-push-button">水一发！</button>
+            </form>
+        </div>
+        <div id="tong-weibo-block">
+            {% for w in weibos %}
+            <div>
+                <div class="tong-weibo-line">
+                    <div class="tong-weibo-content">
+                        <img class="tong-avatar tong-left" src="{{w.user_w.avatar}}">
+                        <div class="tong-weibo-action tong-right">
+                            <button class="tong-weibo-comment tong-right tong-button"  data-id="{{w.id}}">评论</button>
+                            <a class="tong-delete-button tong-right tong-button"
+                               href="{{ url_for('weibo.delete', username=w.user_w.username, weibo_id=w.id)}}">删除</a>
+                            <button class="tong-weibo-edit tong-right tong-button" data-id="{{w.id}}">编辑</button>
+                        </div>
+                        <div>
+                            <div class="tong-weibo-content">{{ w.content }}</div>
+                            <div class="tong-weibo-user">
+                                <span>{{ w.user_w.username }}</span>
+                                <span>发表于</span>
+                                <span>{{ w.created_time }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form id="id-form-edit-{{w.id}}" class='tong-edit-form tong-hide' action="{{url_for('weibo.edit', username=w.user_w.username, weibo_id=w.id)}}" method="post">
+                    <textarea class="tong-new-content" name="new-content" placeholder="Update Weibo"></textarea>
+                    <button class="tong-weibo-update tong-big-button tong-right">更新</button>
+                </form>
+                <div id="id-div-comment-{{w.id}}" class="tong-comment-line tong-hide">
+                {% for c in w.comments %}
+                    <div class="tong-comment-content">
+                        <img class="tong-little-avatar tong-left" src="{{c.user_c.avatar}}">
+                        <div>
+                            <span>{{ c.user_c.username }}</span>
+                            <span>回复</span>
+                            <span>{{ c.weibo.user_w.username }}</span>
+                            <span>: </span>
+                            <span>{{ c.content }}</span>
+                            <span>{{ c.created_time }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+                    <form class="tong-comment-form"
+                          action="{{ url_for('comment.add')}}" method="post">
+                        <input type="hidden" name="weibo_id" value="{{w.id}}">
+                        <input type="hidden" name="user_id" value="{{w.user_w.id}}">
+                        <textarea name="comment" class="tong-new-content" placeholder="Add Comment"></textarea>
+                        <button class="tong-comment-submit tong-right tong-big-button">提交</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
